@@ -1,0 +1,30 @@
+<div class="title-block">
+  <h3 class="title">
+      Страница записей <span class="sparkline bar"></span>
+  </h3>
+</div>
+
+<section class="section text-center" *ngIf="!isLoaded">
+        <ir-loader></ir-loader>
+</section>
+
+
+
+<section class="section" *ngIf="isLoaded">
+  <div class="row">
+      <div class="col-md-6">
+         <ir-add-event [categories]="categories"></ir-add-event>
+      </div>
+      <div class="col-md-6">
+         <ir-add-category  (onCategoryAdd)="newCategoryAdded($event)"></ir-add-category>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-md-6">
+          <ir-edit-category 
+          [categories]="categories"
+          (onCategoryEdit)="categoryWasEdited($event)"
+          ></ir-edit-category>
+      </div>
+  </div>
+</section>
